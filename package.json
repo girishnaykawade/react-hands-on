@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is namaste react practice code project",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/girishnaykawade/react-hands-on.git"
+  },
+  "author": "Girish Naykawade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/girishnaykawade/react-hands-on/issues"
+  },
+  "homepage": "https://github.com/girishnaykawade/react-hands-on#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
