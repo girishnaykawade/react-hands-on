@@ -1,15 +1,6 @@
-/*
-    <div id="parent">
-        <div id="child">
-            <h1> I am h1 tag</h1>
-            <h2> I am h2 tag</h2>
-        </div>
-        <div id="child">
-            <h1> I am h1 tag</h1>
-            <h2> I am h2 tag</h2>
-        </div>
-    </div>
-**/
+import React from "react"
+import ReactDOM from "react-dom";
+
 const parent = React.createElement(
     'div', 
     {id: 'parent'}, 
