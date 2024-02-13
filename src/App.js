@@ -2,9 +2,11 @@ import ReactDOM from "react-dom/client";
 import Header from "./component/Header";
 import Body from "./component/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import About from "./component/About";
 import Error from "./component/Error";
 import RestaurantMenus from "./component/RestaurantMenus";
+import { Suspense, lazy } from "react";
+
+const About = lazy( ()=> import('./component/about'))
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -26,7 +28,7 @@ const routeConf = createBrowserRouter([
       },
       {
         path: '/about',
-        element: <About/>
+        element: (<Suspense fallback={<h1>Loading...</h1>}><About/></Suspense>)
       },
       {
         path: '/restaurant/:resId',

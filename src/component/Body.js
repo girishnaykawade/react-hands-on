@@ -1,25 +1,22 @@
-import Search from "./Search";
 import RestaurantComponent from "./RestaurantComponent";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ShimmerComponent from "./ShimmerComponent";
 import { Link } from "react-router-dom";
+import useRestuarantList from "../utils/useRestuarantList";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = ()=> {
-  const [resList, setResList] = useState([]);
   const [filteredResList, setFilterdResList] = useState([]);
   const [searchText, setSearchText] = useState("")
-  useEffect(() => {
-    getList();
-  }, []);
-  const getList = async () => {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.6999015&lng=77.0003067&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
-    const json = await data.json()
-    const list = json?.data?.cards?.filter(item => item.card.card.id === "restaurant_grid_listing")
-    if(list[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants) {
-      console.log('list[0].card.card.gridElements.infoWithStyle.restaurants', list[0].card.card.gridElements.infoWithStyle.restaurants)
-      setResList(list[0].card.card.gridElements.infoWithStyle.restaurants)
-      setFilterdResList(list[0].card.card.gridElements.infoWithStyle.restaurants)
-    }
+
+  const onlineStatus = useOnlineStatus();
+
+  const resList = useRestuarantList();
+  if(resList && !filteredResList.length) {
+    setFilterdResList(resList);
   }
+  if(!onlineStatus) {
+    return (<h2>Your offline, please check your internet connections!</h2>)
+  } 
   return (!resList || resList.length === 0) 
   ? (<ShimmerComponent/>)
   : (<div className="body-main">

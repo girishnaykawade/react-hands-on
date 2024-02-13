@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
+import { HEADER_LOGO_IMG } from "../utils/constant";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
-const Header = ()=> (
+const Header = ()=> {
+    const onlineStatus = useOnlineStatus();
+    return (
     <div className="restro-header">
-      <img className="logo-img" alt="logo-img" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_1340/Lunch1_vlksgq"/>
+      <img className="logo-img" alt="logo-img" src={HEADER_LOGO_IMG}/>
       <ul className="nav-list">
+        <li>
+          {onlineStatus ?  '🟢': '🔴'}
+        </li>
         <li>
           <Link to="/">Home</Link></li>
         <li>
@@ -12,6 +19,7 @@ const Header = ()=> (
         <li>Cart</li>
       </ul>
     </div>
-  );
+  )
+};
 
   export default Header;

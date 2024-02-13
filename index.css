@@ -82,3 +82,8 @@
     background-position: 468px 0; 
   }
 }
+.user-info {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid gainsboro;
+}
