@@ -5,8 +5,8 @@ const RestaurantMenus = ()=> {
     const {resId} = useParams()
     const menuList = useRestuarantMenu(resId)
     return menuList ? (
-        <div>
-            <div>
+        <div className="mt-2 p-10 bg-slate-200 rounded-lg ">
+            <div className="">
                 <h1>{menuList.name}</h1>
             </div>
             <div>

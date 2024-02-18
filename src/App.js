@@ -6,7 +6,7 @@ import Error from "./component/Error";
 import RestaurantMenus from "./component/RestaurantMenus";
 import { Suspense, lazy } from "react";
 
-const About = lazy( ()=> import('./component/about'))
+const About = lazy( ()=> import('./component/About'))
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
